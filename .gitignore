@@ -3,5 +3,3 @@
 # Carpetas a ignorar
 node_modules/
 public/src-front/node_modules
-
-# Archivos a ignorar
