@@ -12,9 +12,9 @@ import {
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand={false}>
+    <Navbar expand={false} bg="dark" variant="dark">
       <Container fluid>
-        <Navbar.Brand href="#">Nombre A Definir</Navbar.Brand>
+        <Navbar.Brand href="#">NombreADefinir</Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas
           id="offcanvasNavbar"
