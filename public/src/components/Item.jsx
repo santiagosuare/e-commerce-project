@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 
 const Item = (producto) => {
+  console.log(producto);
   return (
     <div>
       <Card style={{ width: "18rem" }}>
@@ -9,6 +10,7 @@ const Item = (producto) => {
         <Card.Body>
           <Card.Title>{producto.producto.nombre}</Card.Title>
           <Card.Text>{producto.producto.descripcion}</Card.Text>
+          <Card.Text>{producto.producto.timestamp}</Card.Text>
           <Button variant="primary">Detalles</Button>
         </Card.Body>
       </Card>

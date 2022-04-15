@@ -1,5 +1,6 @@
 const express = require("express");
 const productoRouter = require("./routes/productosRouter");
+const carritoRouter = require("./routes/carritoRouter");
 const app = express();
 const PORT = 8080 || 3001;
 
@@ -13,3 +14,4 @@ const server = app.listen(PORT, () => {
 server.on("error", (error) => console.log("Hubo un error " + error));
 
 app.use("/api/productos", productoRouter);
+app.use("/api/carrito", carritoRouter);

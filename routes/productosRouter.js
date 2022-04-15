@@ -4,7 +4,7 @@ const productoRouter = express.Router();
 let producto = [
   {
     id: 1,
-    timestamp: "2020-01-01T00:00:00.000Z",
+    timestamp: "",
     nombre: "manuel",
     descripcion: "Articulo de limpieza",
     codigo: "123",
@@ -14,7 +14,7 @@ let producto = [
   },
   {
     id: 2,
-    timestamp: "2020-01-01T00:00:00.000Z",
+    timestamp: "",
     nombre: "manuel",
     descripcion: "Articulo de limpieza",
     codigo: "123",
@@ -24,7 +24,7 @@ let producto = [
   },
   {
     id: 3,
-    timestamp: "2020-01-01T00:00:00.000Z",
+    timestamp: "",
     nombre: "manuel",
     descripcion: "Articulo de limpieza",
     codigo: "123",
@@ -34,7 +34,7 @@ let producto = [
   },
   {
     id: 4,
-    timestamp: "2020-01-01T00:00:00.000Z",
+    timestamp: "",
     nombre: "manuel",
     descripcion: "Articulo de limpieza",
     codigo: "123",
@@ -44,7 +44,7 @@ let producto = [
   },
   {
     id: 5,
-    timestamp: "2020-01-01T00:00:00.000Z",
+    timestamp: "",
     nombre: "manuel",
     descripcion: "Articulo de limpieza",
     codigo: "123",
@@ -54,7 +54,7 @@ let producto = [
   },
   {
     id: 6,
-    timestamp: "2020-01-01T00:00:00.000Z",
+    timestamp: "",
     nombre: "manuel",
     descripcion: "Articulo de limpieza",
     codigo: "123",
@@ -64,7 +64,7 @@ let producto = [
   },
   {
     id: 7,
-    timestamp: "2020-01-01T00:00:00.000Z",
+    timestamp: "",
     nombre: "manuel",
     descripcion: "Articulo de limpieza",
     codigo: "123",
@@ -74,7 +74,7 @@ let producto = [
   },
   {
     id: 8,
-    timestamp: "2020-01-01T00:00:00.000Z",
+    timestamp: "",
     nombre: "manuel",
     descripcion: "Articulo de limpieza",
     codigo: "123",
@@ -84,9 +84,25 @@ let producto = [
   },
 ];
 
+const insertDate = () => {
+  let date = new Date();
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  let miliseconds = date.getMilliseconds();
+  let timestamp = `${year}-${month}-${day}T${hour}:${minutes}:${seconds}.${miliseconds}`;
+  return timestamp;
+};
+
+producto.map((producto) => {
+  producto.timestamp = insertDate();
+});
+
 productoRouter.get("/", (req, res) => {
-  console.log(producto);
-  res.json(producto);
+  res.send(producto);
 });
 
 productoRouter.get("/:id", (req, res) => {
@@ -110,7 +126,7 @@ productoRouter.put("/:id", (req, res) => {
   if (productoId == undefined) {
     res.status(404).send("No se encontro el producto");
   } else {
-    productoId.timestamp = req.body.timestamp;
+    productoId.timestamp = registroDate.toString();
     productoId.nombre = req.body.nombre;
     productoId.descripcion = req.body.descripcion;
     productoId.codigo = req.body.codigo;
