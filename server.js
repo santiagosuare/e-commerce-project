@@ -12,7 +12,6 @@ const server = app.listen(PORT, () => {
   console.log("Servidor escuchando en el puerto " + server.address().port);
 });
 
-console.log("test");
 server.on("error", (error) => console.log("Hubo un error " + error));
 
 app.use("/api/admin", adminRouter);
