@@ -1,6 +1,5 @@
 const express = require("express");
 const carritoRouter = express.Router();
-// const productoRouter = express.Router();
 
 let carrito = [];
 
