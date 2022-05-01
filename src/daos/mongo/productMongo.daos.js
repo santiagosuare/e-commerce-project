@@ -21,12 +21,12 @@ class Product {
   async save(product) {
     try {
       await this.connectDb();
-      // if (!product || typeof product !== "object") {
-      //   throw Error("No se a agregado un producto");
-      // }
-      // if (Object.keys(product).length === 0) {
-      //   throw Error("No se a agregado un producto");
-      // }
+      if (!product || typeof product !== "object") {
+        throw Error("No se a agregado un producto");
+      }
+      if (Object.keys(product).length === 0) {
+        throw Error("No se a agregado un producto");
+      }
       console.log("Conecte");
       const productModel = await schemaProduct.create({
         ...product,
