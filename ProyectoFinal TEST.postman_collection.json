@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "23d1b349-eac9-4d66-989e-14ae833f8826",
+		"name": "ProyectoFinal TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Producto",
+			"item": [
+				{
+					"name": "readAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"admin\": true,\n    \"name\" : \"Cuaderno\",\n    \"description\" : \"Cuaderno Ribadavia Modelo A4\",\n    \"price\" : 50,\n    \"url\": \"www.google.com.ar\",\n    \"stock\" : 100,\n    \"code\" : \"ADRE600\",\n    \"timestamp\": \"30/04/2022\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readProductById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos/626e2288a4bc2de4260adfc6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"626e2288a4bc2de4260adfc6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"admin\": true,\n    \"name\" : \"Cuaderno\",\n    \"description\" : \"Cuaderno Ribadavia Modelo A5\",\n    \"price\" : 50,\n    \"url\": \"www.google.com.ar\",\n    \"stock\" : 100,\n    \"code\" : \"ADRE600\",\n    \"timestamp\": \"30/04/2022\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos/626e2288a4bc2de4260adfc6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"626e2288a4bc2de4260adfc6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"admin\": true,\n    \"name\" : \"Cuaderno\",\n    \"description\" : \"Cuaderno Ribadavia Modelo A5\",\n    \"price\" : 50,\n    \"url\": \"www.google.com.ar\",\n    \"stock\" : 100,\n    \"code\" : \"ADRE600\",\n    \"timestamp\": \"30/04/2022\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos/626e2288a4bc2de4260adfc6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"626e2288a4bc2de4260adfc6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "createCart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/carrito/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addProductToCart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"626e273d0e9d1eb997e329d9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/carrito/626e159a69bf75ffff12d350/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"626e159a69bf75ffff12d350",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readCartById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/carrito/626e159a69bf75ffff12d350/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"626e159a69bf75ffff12d350",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCartById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/carrito/626e277a0e9d1eb997e329db/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"626e277a0e9d1eb997e329db",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProductFromCart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/carrito/626e159a69bf75ffff12d350/productos/626e273d0e9d1eb997e329d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"626e159a69bf75ffff12d350",
+								"productos",
+								"626e273d0e9d1eb997e329d9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
