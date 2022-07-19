@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon ./src/server.js",
+    "dev": "nodemon ./src/server.js",
+    "client": "cd public && npm start",
+    "start": "concurrently \"npm run dev\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +16,7 @@
     "express": "^4.17.3",
     "express-handlebars": "^6.0.5",
     "firebase-admin": "^10.1.0",
+    "log4js": "^6.6.0",
     "mongoose": "^6.3.1",
     "nodemon": "^2.0.15"
   }

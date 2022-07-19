@@ -16,12 +16,14 @@ function ItemListContainer() {
       },
     })
       .then((res) => {
-        return res.json();
+        res.json().then((data) => {
+          setItems(data.productos);
+          setLoading(false);
+        });
       })
-      .then((data) => setItems(data))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [0]);
 
   return (
     <div>

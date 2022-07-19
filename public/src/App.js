@@ -1,13 +1,18 @@
 import "./App.css";
-import NavBar from "./components/NavBar";
-// import { Switch } from "react";
-import ItemListContainer from "./components/ItemListContainer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
+import ItemListContainer from "./components/Items/ItemListContainer";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <ItemListContainer />
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<NavBar />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

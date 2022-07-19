@@ -1,10 +1,7 @@
 // Mongo
 const Daos = require("../daos/mongo/mainMongo.daos.js");
 const Product = new Daos.productDaos();
-
-// Firebase
-// const Daos = require("../daos/firebase/mainFirebaseDaos");
-// const Product = new Daos.ProductDao();
+const logger = require("../logs/logs.js");
 
 module.exports = {
   //READ PRODUCT
@@ -13,14 +10,17 @@ module.exports = {
       const products = await Product.getAll();
       res.status(200).send({
         status: 200,
-        message: "Productos encontrados",
+        message: "Success read all products",
         productos: products,
       });
+      logger.info(`Success read all products ${products}`);
     } catch (error) {
       res.status(500).send({
         status: 500,
-        message: "Error interno del servidor" + error,
+        message: "Error reading all products",
+        data: error,
       });
+      logger.error(`Error reading all products ${error}`);
     }
   },
   //CREATE PRODUCT
@@ -29,14 +29,17 @@ module.exports = {
       const product = await Product.save(req.body);
       res.status(200).send({
         status: 200,
-        message: "Producto creado correctamente",
+        message: "Success create product",
         producto: { product },
       });
+      logger.info(`Success create product ${product}`);
     } catch (error) {
       res.status(500).send({
         status: 500,
-        message: "Error interno del servidor producto " + error,
+        message: "Error reading all products ",
+        data: error,
       });
+      logger.error(`Error reading all products ${error}`);
     }
   },
   //READ PRODUCT BY ID
@@ -45,14 +48,17 @@ module.exports = {
       const product = await Product.getById(req.params.id);
       res.status(200).send({
         status: 200,
-        message: "Producto encontrado",
+        message: "Success read product by id",
         producto: product,
       });
+      logger.info(`Success read product by id ${product}`);
     } catch (error) {
       res.status(500).send({
         status: 500,
-        message: "Error interno del servidor" + error,
+        message: "Error reading product by id",
+        data: error,
       });
+      logger.error(`Error reading product by id ${error}`);
     }
   },
   //UPDATE PRODUCT
@@ -61,14 +67,17 @@ module.exports = {
       const product = await Product.updateById(req.params.id, req.body);
       res.status(200).send({
         status: 200,
-        message: "Producto actualizado correctamente",
+        message: "Success update product",
         producto: product,
       });
+      logger.info(`Success update product ${product}`);
     } catch (error) {
       res.status(500).send({
         status: 500,
-        message: "Error interno del servidor" + error,
+        message: "Error update product",
+        data: error,
       });
+      logger.error(`Error update product ${error}`);
     }
   },
   //DELETE PRODUCT
@@ -77,14 +86,17 @@ module.exports = {
       const product = await Product.deleteById(req.params.id);
       res.status(200).send({
         status: 200,
-        message: "Producto eliminado correctamente",
+        message: "Success delete product",
         producto: product,
       });
+      logger.info(`Success delete product ${product}`);
     } catch (error) {
       res.status(500).send({
         status: 500,
-        message: "Error interno del servidor" + error,
+        message: "Error delete product",
+        data: error,
       });
+      logger.error(`Error delete product ${error}`);
     }
   },
 };
