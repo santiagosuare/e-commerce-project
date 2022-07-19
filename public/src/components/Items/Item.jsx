@@ -2,7 +2,6 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 
 const Item = (producto) => {
-  console.log(producto);
   return (
     <div>
       <br />
@@ -10,8 +9,8 @@ const Item = (producto) => {
         <Card.Img variant="top" src={producto.producto.url} />
         <Card.Body>
           <Card.Title>{producto.producto.name}</Card.Title>
-          <Card.Text>{producto.producto.descripcion}</Card.Text>
-          <Card.Text>$ {producto.producto.precio}</Card.Text>
+          <Card.Text>{producto.producto.description}</Card.Text>
+          <Card.Text>$ {producto.producto.price}</Card.Text>
           <Button variant="primary">Detalles</Button>
         </Card.Body>
       </Card>
