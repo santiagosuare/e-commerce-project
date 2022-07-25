@@ -1,4 +1,5 @@
 # Carpetas y Archivos a Ignorar
+src/.env
 
 # Carpetas a ignorar
 node_modules/

@@ -1,8 +1,8 @@
 const connect = require("mongoose").connect;
 const logger = require("../../logs/logs");
+require("dotenv").config({ path: "./src/.env" });
 
-const url =
-  "mongodb+srv://ssuarez:Aa123456@cluster0.q9i2x.mongodb.net/MyMarketTest?retryWrites=true&w=majority";
+const url = process.env.NODE_URL_MONGO_DB;
 
 async function connectMongoDb() {
   try {

@@ -2,10 +2,6 @@
 const Daos = require("../daos/mongo/mainMongo.daos");
 const Cart = new Daos.cartDaos();
 
-// Firebase
-// const Daos = require("../daos/firebase/mainFirebaseDaos");
-// const Cart = new Daos.CartDao();
-
 module.exports = {
   //CREATE CART
   createCart: async (req, res) => {
