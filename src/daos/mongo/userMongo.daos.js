@@ -18,6 +18,28 @@ class User {
     }
   }
 
+  async getByNameAndPassword(email, password) {
+    try {
+      await this.connectDb();
+      const user = await schemaUser.findOne({ email, password });
+      mongoose.disconnect();
+      return user;
+    } catch (error) {
+      throw Error(error.message);
+    }
+  }
+
+  async getById(id) {
+    try {
+      await this.connectDb();
+      const user = await schemaUser.findById(id);
+      mongoose.disconnect();
+      return user;
+    } catch (error) {
+      throw Error(error.message);
+    }
+  }
+
   async save(user) {
     try {
       await this.connectDb();

@@ -22,6 +22,59 @@ module.exports = {
       logger.error(`Error reading all users ${error}`);
     }
   },
+
+  //READ USER BY ID
+  readUserById: async (req, res) => {
+    try {
+      const user = await User.getById(req.params.id);
+      res.status(200).send({
+        status: 200,
+        message: "Success read user by id",
+        user: user,
+      });
+      logger.info(`Success read user by id ${user}`);
+    } catch (error) {
+      res.status(500).send({
+        status: 500,
+        message: "Error reading user by id",
+        data: error,
+      });
+      logger.error(`Error reading user by id ${error}`);
+    }
+  },
+
+  readUserByNameAndPassword: async (req, res) => {
+    try {
+      console.log(req.query.email);
+      console.log(req.query.password);
+      const user = await User.getByNameAndPassword(
+        req.query.email,
+        req.query.password
+      );
+      if (user === null) {
+        res.status(404).send({
+          status: 404,
+          message: "User not found",
+        });
+        logger.info(`User not found`);
+      } else {
+        res.status(200).send({
+          status: 200,
+          message: "Success read user by name and password",
+          user: user,
+        });
+        logger.info(`Success read user by name and password ${user}`);
+      }
+    } catch (error) {
+      res.status(500).send({
+        status: 500,
+        message: "Error reading user by name and password",
+        data: error,
+      });
+      logger.error(`Error reading user by name and password ${error}`);
+    }
+  },
+
   //CREATE USER
   createUser: async (req, res) => {
     try {

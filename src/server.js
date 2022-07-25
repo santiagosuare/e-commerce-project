@@ -1,8 +1,9 @@
 const express = require("express");
-const app = express();
 const router = require("./routes/indexRouter.js");
 const logger = require("./logs/logs.js");
-const PORT = 8080;
+const app = express();
+require("dotenv").config({ path: "./src/.env" });
+const PORT = process.env.PORT;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

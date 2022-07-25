@@ -23,7 +23,7 @@ function ItemListContainer() {
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, [0]);
+  }, []);
 
   return (
     <div>
