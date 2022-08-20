@@ -24,7 +24,7 @@ const Login = () => {
     };
 
     const url =
-      "http://localhost:8080/api/user/login?email=" +
+      "http://localhost:8080/api/login?email=" +
       data.email +
       "&password=" +
       data.password;
@@ -39,7 +39,8 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         if (data.status === 200) {
-          // localStorage.setItem("token", data.token);
+          console.log(data);
+          localStorage.setItem("token", data.token);
           window.location.href = "/home";
         } else {
           alert("Invalid email or password");

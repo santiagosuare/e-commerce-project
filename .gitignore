@@ -1,5 +1,6 @@
 # Carpetas y Archivos a Ignorar
 src/.env
+src/logs/logs.log
 
 # Carpetas a ignorar
 node_modules/

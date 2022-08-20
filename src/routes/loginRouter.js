@@ -1,4 +1,12 @@
 const express = require("express");
 const loginRouter = express.Router();
 
-const {} = require("../controllers/login.controller.js");
+const {
+  readUserByNameAndPassword,
+  infoUserLog,
+} = require("../controllers/login.controller.js");
+
+loginRouter.get("/", readUserByNameAndPassword);
+loginRouter.get("/infoUserLog", infoUserLog);
+
+module.exports = loginRouter;

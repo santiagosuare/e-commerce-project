@@ -2,6 +2,10 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 
 const Item = (producto) => {
+  const onSubmit = () => {
+    window.location.href = "/detalle/" + producto.producto._id;
+  };
+
   return (
     <div>
       <br />
@@ -11,7 +15,9 @@ const Item = (producto) => {
           <Card.Title>{producto.producto.name}</Card.Title>
           <Card.Text>{producto.producto.description}</Card.Text>
           <Card.Text>$ {producto.producto.price}</Card.Text>
-          <Button variant="primary">Detalles</Button>
+          <Button variant="primary" onClick={onSubmit}>
+            Detalles
+          </Button>
         </Card.Body>
       </Card>
     </div>

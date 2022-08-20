@@ -70,7 +70,7 @@ const Register = () => {
       .then((res) => {
         console.log(res);
         alert("Register Success");
-        window.location.href = "/Login";
+        window.location.href = "/";
       })
       .catch((err) => {
         console.log(err);
@@ -79,7 +79,7 @@ const Register = () => {
   };
 
   const onRedirect = () => {
-    window.location.href = "/Login";
+    window.location.href = "/";
   };
   return (
     <div>

@@ -1,6 +1,8 @@
 const express = require("express");
 const productoRouter = express.Router();
 const isAdmin = require("../middlewares/isAdmin.js");
+const { auth } = require("../service/security/configOauth.js");
+
 const {
   readAllProducts,
   readProductById,
@@ -10,7 +12,7 @@ const {
 } = require("../controllers/producto.controller.js");
 
 productoRouter.get("/", readAllProducts);
-productoRouter.post("/", isAdmin, createProduct);
+productoRouter.post("/", createProduct);
 productoRouter.get("/:id", readProductById);
 productoRouter.put("/:id", isAdmin, updateProduct);
 productoRouter.delete("/:id", isAdmin, deleteProduct);

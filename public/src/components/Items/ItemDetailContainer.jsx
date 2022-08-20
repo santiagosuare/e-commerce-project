@@ -1,14 +1,16 @@
-import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ItemDetail from "./ItemDetail";
 import { Spinner } from "react-bootstrap";
-import ItemList from "./ItemList";
 
-function ItemListContainer() {
-  const [items, setItems] = useState([]);
+const ItemDetailContainer = () => {
+  const { id } = useParams();
+
+  const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/productos", {
+    fetch("/api/productos/" + id, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -18,25 +20,28 @@ function ItemListContainer() {
     })
       .then((res) => {
         res.json().then((data) => {
-          setItems(data.productos);
-          setLoading(false);
+          setItem(data.producto);
         });
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
+
+  console.log(item);
 
   return (
-    <div>
+    <>
+      <br />
+      <br />
       {loading ? (
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       ) : (
-        <ItemList items={items} />
+        <ItemDetail item={item} />
       )}
-    </div>
+    </>
   );
-}
+};
 
-export default ItemListContainer;
+export default ItemDetailContainer;

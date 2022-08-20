@@ -13,7 +13,7 @@ module.exports = {
         message: "Success read all products",
         productos: products,
       });
-      logger.info(`Success read all products ${products}`);
+      logger.info(`Success read all products`);
     } catch (error) {
       res.status(500).send({
         status: 500,
