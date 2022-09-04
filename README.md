@@ -2,6 +2,18 @@
 
 ## _Tienda e-commerce_
 
+Proyecto live, en Heroku:
+## BACKEND:
+https://ecommerceproje.herokuapp.com/
+
+Apis --> 
+https://ecommerceproje.herokuapp.com/api/login?email=admin@gmail.com&password=admin
+https://ecommerceproje.herokuapp.com/api/user
+https://ecommerceproje.herokuapp.com/api/productos
+
+## FRONTEND:
+https://ecommerceprojefrontend.herokuapp.com/
+
 
 ## Proyecto Final Node.js
 
